@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="faviconTitle">
+  <title id="faviconTitle">Auxio favicon</title>
+  <defs>
+    <linearGradient id="auxioBg" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14b8a6" />
+      <stop offset="1" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#auxioBg)" />
+  <path
+    fill="#f8fafc"
+    d="M31.998 13 47 50h-8.526l-2.423-6.589H27.91L25.49 50H17l14.998-37Zm0 11.249-4.972 13.459h9.979l-5.007-13.459Z"
+  />
+  <circle cx="46.5" cy="18.5" r="5.5" fill="#2dd4bf" />
+</svg>

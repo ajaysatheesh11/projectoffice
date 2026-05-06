@@ -72,7 +72,7 @@ export default function AdminLayout({ title, children }) {
                     }`}
             >
                 {/* Logo */}
-                <div className="flex h-16 items-center gap-3 border-b border-white/[0.06] px-5">
+                <div className="flex h-16 items-center border-b border-white/[0.06] px-5">
                     <Link className="flex items-center gap-3" href="/admin">
                         <img
                             src="/images/image.png"
@@ -83,9 +83,6 @@ export default function AdminLayout({ title, children }) {
                             width="112"
                         />
                     </Link>
-                    <span className="admin-badge inline-flex items-center rounded-full border border-lime-400/20 bg-lime-400/8 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.2em] text-lime-400">
-                        Admin
-                    </span>
                 </div>
 
                 {/* Nav */}

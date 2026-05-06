@@ -40,5 +40,8 @@ Route::prefix('admin')
             Route::get('/pages/contact', [PageContentController::class, 'edit'])->defaults('page', 'contact')->name('pages.contact.edit');
             Route::put('/pages/contact', [PageContentController::class, 'update'])->defaults('page', 'contact')->name('pages.contact.update');
             Route::resource('page-sections', PageSectionController::class)->only(['store', 'update', 'destroy']);
+            
+            Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
+            Route::resource('projects', \App\Http\Controllers\Admin\ProjectController::class);
         });
     });

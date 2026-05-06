@@ -1,5 +1,8 @@
 import '../css/app.css';
 import './bootstrap';
+import { route } from 'ziggy-js';
+
+window.route = route;
 
 import { createInertiaApp } from '@inertiajs/react';
 import { Suspense } from 'react';

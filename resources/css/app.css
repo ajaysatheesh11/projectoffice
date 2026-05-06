@@ -237,21 +237,86 @@
         backdrop-filter: blur(16px);
     }
 
-    .admin-panel {
-        border: 1px solid rgba(226, 232, 240, 0.9);
-        box-shadow:
-            0 1px 2px rgba(15, 23, 42, 0.04),
-            0 16px 40px rgba(15, 23, 42, 0.06);
-        transition:
-            transform 180ms ease,
-            box-shadow 180ms ease;
+    /* ── Admin Dark Theme ── */
+    .admin-shell {
+        background:
+            radial-gradient(circle at 15% 20%, rgba(163, 230, 53, 0.03), transparent 40%),
+            radial-gradient(circle at 85% 80%, rgba(52, 211, 153, 0.02), transparent 35%),
+            #0a0f0a;
     }
 
-    .admin-panel:hover {
-        transform: translateY(-1px);
-        box-shadow:
-            0 4px 14px rgba(15, 23, 42, 0.06),
-            0 24px 56px rgba(15, 23, 42, 0.08);
+    .admin-sidebar {
+        background:
+            linear-gradient(180deg, rgba(13, 18, 13, 0.98), rgba(10, 14, 10, 0.95));
+    }
+
+    .admin-sidebar-link {
+        position: relative;
+    }
+
+    .admin-sidebar-link-active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 60%;
+        border-radius: 0 3px 3px 0;
+        background: linear-gradient(180deg, #a3e635, #34d399);
+        box-shadow: 0 0 12px rgba(163, 230, 53, 0.3);
+    }
+
+    .admin-main {
+        background:
+            radial-gradient(circle at 50% 0%, rgba(163, 230, 53, 0.015), transparent 50%),
+            transparent;
+    }
+
+    .admin-stat-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        opacity: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent);
+        transition: opacity 300ms ease;
+    }
+
+    .admin-stat-card:hover::after {
+        opacity: 1;
+    }
+
+    .admin-welcome {
+        position: relative;
+    }
+
+    .admin-welcome::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background:
+            linear-gradient(135deg, rgba(163, 230, 53, 0.04), transparent 60%);
+        pointer-events: none;
+    }
+
+    .admin-quick-action {
+        position: relative;
+    }
+
+    .admin-quick-action::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        opacity: 0;
+        background: linear-gradient(135deg, rgba(163, 230, 53, 0.02), transparent);
+        transition: opacity 300ms ease;
+    }
+
+    .admin-quick-action:hover::after {
+        opacity: 1;
     }
 
     .route-loader {
@@ -735,7 +800,8 @@
     }
 
     .section-card,
-    .admin-panel,
+    .admin-stat-card,
+    .admin-quick-action,
     .fade-slide-in,
     .stagger-rise > *,
     .soft-pulse,

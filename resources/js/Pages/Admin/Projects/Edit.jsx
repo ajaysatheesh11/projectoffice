@@ -103,7 +103,8 @@ export default function Edit({ project, categories }) {
                             value={data.description}
                             onChange={(e) => setData('description', e.target.value)}
                             error={errors.description}
-                            rows={4}
+                            help="Maximum 150 words"
+                            rows={10}
                         />
 
                         <div className="grid gap-6 md:grid-cols-2">

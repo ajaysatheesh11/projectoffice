@@ -33,9 +33,14 @@ function getReadableTextColor(hex) {
     return brightness > 150 ? '#071108' : '#f8fbf5';
 }
 
+function truncate(text, limit = 150) {
+    if (!text) return '';
+    return text.length > limit ? text.substring(0, limit) + '...' : text;
+}
+
 function ShowcaseTile({ project, index }) {
-    const accentColor = project.accent_color || '#9ec91d';
-    const textColor = getReadableTextColor(accentColor);
+    const accentColor = '#9ec91d'; // Default lime accent
+    const textColor = '#071108'; // Default dark text for lime bg
     const imageOnRight = index % 2 === 0;
 
     return (
@@ -44,18 +49,18 @@ function ShowcaseTile({ project, index }) {
             style={{ '--project-accent': accentColor, '--project-text': textColor }}
         >
             <div className="project-showcase-copy">
-                <p className="project-showcase-category">{project.category || 'Featured Project'}</p>
+                <p className="project-showcase-category">{project.category?.name || 'Featured Project'}</p>
                 <h3 className="project-showcase-title">{project.title}</h3>
-                <p className="project-showcase-summary">{project.summary}</p>
+                <p className="project-showcase-summary">{truncate(project.description)}</p>
                 <div className="project-showcase-actions">
-                    <a className="project-showcase-link" href={project.project_url || '/quote'}>
-                        {project.project_url ? 'View Project' : 'Discuss Similar Build'}
+                    <a className="project-showcase-link" href={project.link || '/quote'}>
+                        {project.link ? 'Website Link' : 'Website Link'}
                     </a>
                 </div>
             </div>
             <div className="project-showcase-visual">
-                {project.image_url ? (
-                    <img alt={project.image_alt} className="project-showcase-image" src={project.image_url} />
+                {project.image ? (
+                    <img alt={project.title} className="project-showcase-image" src={`/storage/${project.image}`} />
                 ) : (
                     <div className="project-showcase-placeholder">
                         <span>{project.title}</span>

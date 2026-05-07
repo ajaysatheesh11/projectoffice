@@ -30,7 +30,15 @@ class ProjectController extends Controller
         $request->validate([
             'category_id' => 'required|exists:categories,id',
             'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'description' => [
+                'nullable',
+                'string',
+                function ($attribute, $value, $fail) {
+                    if (str_word_count($value) > 150) {
+                        $fail('The description must not exceed 150 words.');
+                    }
+                },
+            ],
             'image' => 'nullable|image|max:2048',
             'link' => 'nullable|url',
         ]);
@@ -59,12 +67,20 @@ class ProjectController extends Controller
         $request->validate([
             'category_id' => 'required|exists:categories,id',
             'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'description' => [
+                'nullable',
+                'string',
+                function ($attribute, $value, $fail) {
+                    if (str_word_count($value) > 150) {
+                        $fail('The description must not exceed 150 words.');
+                    }
+                },
+            ],
             'image' => 'nullable|image|max:2048',
             'link' => 'nullable|url',
         ]);
 
-        $data = $request->all();
+        $data = $request->except('image');
 
         if ($request->hasFile('image')) {
             if ($project->image) {

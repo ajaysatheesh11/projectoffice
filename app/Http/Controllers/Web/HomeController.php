@@ -26,15 +26,6 @@ class HomeController extends Controller
             ],
             'pageContent' => PageContentResource::make($page)->resolve(),
             'sections' => PageSectionResource::collection($page->sections)->resolve(),
-            'featuredProjects' => PortfolioItemResource::collection(
-                PortfolioItem::query()
-                    ->where('is_published', true)
-                    ->where('featured_on_home', true)
-                    ->orderBy('sort_order')
-                    ->orderBy('title')
-                    ->limit(4)
-                    ->get()
-            )->resolve(),
         ]);
     }
 }

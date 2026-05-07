@@ -6,10 +6,9 @@ import Section from '@/Components/UI/Section';
 import ProjectShowcaseGrid from '@/Components/Site/ProjectShowcaseGrid';
 import AppLayout from '@/Layouts/AppLayout';
 
-export default function HomeIndex({ seo, pageContent, sections = [], featuredProjects = [] }) {
+export default function HomeIndex({ seo, pageContent, sections = [] }) {
     const statsSection = sections.find((section) => section.section_key === 'stats');
     const highlightsSection = sections.find((section) => section.section_key === 'highlights');
-    const featuredProjectsSection = sections.find((section) => section.section_key === 'featured_projects');
     const titleLines = [pageContent.title, pageContent.highlight, pageContent.subtitle].filter(Boolean);
 
     return (
@@ -110,19 +109,7 @@ export default function HomeIndex({ seo, pageContent, sections = [], featuredPro
                 </Section>
             ) : null}
 
-            {featuredProjectsSection?.is_active && featuredProjects.length ? (
-                <Section
-                    className="py-20"
-                    containerClassName="space-y-8"
-                    description={featuredProjectsSection.content}
-                    eyebrow={featuredProjectsSection.eyebrow}
-                    title={featuredProjectsSection.title}
-                >
-                    <div className="mt-12">
-                        <ProjectShowcaseGrid items={featuredProjects} />
-                    </div>
-                </Section>
-            ) : null}
+
         </AppLayout>
     );
 }

@@ -33,9 +33,7 @@ class SitePageController extends Controller
     public function portfolio(): Response
     {
         return $this->render('Portfolio/Index', 'portfolio', [
-            'items' => PortfolioItemResource::collection(
-                PortfolioItem::query()->where('is_published', true)->orderBy('sort_order')->orderBy('title')->get()
-            )->resolve(),
+            'projects' => \App\Models\Project::with('category')->latest()->get(),
         ]);
     }
 

@@ -33,14 +33,14 @@ function getReadableTextColor(hex) {
     return brightness > 150 ? '#071108' : '#f8fbf5';
 }
 
-// function truncateWords(text, limit = 100) {
-//     if (!text) return '';
-//     const words = text.trim().split(/\s+/).filter(word => word.length > 0);
-//     if (words.length > limit) {
-//         return words.slice(0, limit).join(' ') + '...';
-//     }
-//     return text;
-// }
+function truncateWords(text, limit = 100) {
+    if (!text) return '';
+    const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+    if (words.length > limit) {
+        return words.slice(0, limit).join(' ') + '...';
+    }
+    return text;
+}
 
 
 function ShowcaseTile({ project, index }) {
@@ -56,8 +56,7 @@ function ShowcaseTile({ project, index }) {
             <div className="project-showcase-copy">
                 <p className="project-showcase-category">{project.category?.name || 'Featured Project'}</p>
                 <h3 className="project-showcase-title">{project.title}</h3>
-                {/* <p className="project-showcase-summary">{truncateWords(project.description, 100)}</p> */}
-                <p className="project-showcase-summary">{project.description}</p>
+                <p className="project-showcase-summary">{truncateWords(project.description, 100)}</p>
                 <div className="project-showcase-actions">
                     <a className="project-showcase-link" href={project.link || '/quote'}>
                         {project.link ? 'Website Link' : 'Website Link'}

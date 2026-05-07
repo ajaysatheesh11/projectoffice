@@ -102,7 +102,7 @@ export default function Create({ categories }) {
                             value={data.description}
                             onChange={(e) => setData('description', e.target.value)}
                             error={errors.description}
-                            help="Maximum 150 words"
+                            help="Maximum 100 words"
                             rows={10}
                             placeholder="Tell us about the project..."
                         />

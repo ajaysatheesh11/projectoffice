@@ -34,8 +34,8 @@ class ProjectController extends Controller
                 'nullable',
                 'string',
                 function ($attribute, $value, $fail) {
-                    if (str_word_count($value) > 150) {
-                        $fail('The description must not exceed 150 words.');
+                    if (str_word_count($value) >= 100) {
+                        $fail('The description must not exceed 100 words.');
                     }
                 },
             ],
@@ -71,8 +71,8 @@ class ProjectController extends Controller
                 'nullable',
                 'string',
                 function ($attribute, $value, $fail) {
-                    if (str_word_count($value) > 150) {
-                        $fail('The description must not exceed 150 words.');
+                    if (str_word_count($value) >= 100) {
+                        $fail('The description must not exceed 100 words.');
                     }
                 },
             ],
